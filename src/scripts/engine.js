@@ -34,7 +34,7 @@ const cardData = [
         id: 0,
         name: "Blue Eyes White Dragon",
         type: "Papel",
-        img: `${pathImages}dragon.png`,
+        img: `${pathImages}Blue Eyes White Dragon.png`,
         WinOf: [1],
         LoseOf: [2],
     },
@@ -42,7 +42,7 @@ const cardData = [
         id: 1,
         name: "Dark Magician",
         type: "Pedra",
-        img: `${pathImages}magician.png`,
+        img: `${pathImages}Dark Magician.png`,
         WinOf: [2],
         LoseOf: [0],
     },
@@ -63,13 +63,14 @@ async function getRandomCardId() {
 
 async function createCardImage(IdCard, fieldSide) {
     const cardImage = document.createElement("img")
-    cardImage.setAttribute("height", "100px")
-    cardImage.setAttribute("src", "./src/assets/icons/card-back.png")
+    cardImage.setAttribute("height", "100px")   
     cardImage.setAttribute("data-id", IdCard)
     cardImage.classList.add("card")
 
 
     if(fieldSide === state.playerSides.player1) {
+        cardImage.setAttribute("src", cardData[IdCard].img)
+
         cardImage.addEventListener("mouseover", () => {
             drawSelectCard(IdCard)
         })
@@ -77,6 +78,8 @@ async function createCardImage(IdCard, fieldSide) {
         cardImage.addEventListener("click", () => {
             setCardsField(cardImage.getAttribute("data-id"))
         })
+    } else {
+        cardImage.setAttribute("src", "./src/assets/icons/card-back.png")
     }
 
     
@@ -165,7 +168,6 @@ async function drawCards(cardNumbers, fieldSide) {
         const randomIdCard = await getRandomCardId()
         const cardImage = await createCardImage(randomIdCard, fieldSide)
 
-        console.log(fieldSide)
         document.getElementById(fieldSide).appendChild(cardImage)
     }
 }
