@@ -32,7 +32,7 @@ const pathImages = "./src/assets/icons/"
 const cardData = [
     {
         id: 0,
-        name: "Blue Eyes White Dragon",
+        name: "Dragão Branco de Olhos Azuis",
         type: "Papel",
         img: `${pathImages}Blue Eyes White Dragon.png`,
         WinOf: [1],
@@ -40,7 +40,7 @@ const cardData = [
     },
     {
         id: 1,
-        name: "Dark Magician",
+        name: "Mago Negro",
         type: "Pedra",
         img: `${pathImages}Dark Magician.png`,
         WinOf: [2],
@@ -124,7 +124,7 @@ async function drawButton(text) {
 }
 
  async function updateScore() {
-     state.score.scoreBox.innerText = `Win: ${state.score.playerScore} | Lose: ${state.score.computerScore}`
+     state.score.scoreBox.innerText = `V: ${state.score.playerScore} | D: ${state.score.computerScore}`
  }
 
 async function checkDuelResults(playerCardId, computerCardId) {
