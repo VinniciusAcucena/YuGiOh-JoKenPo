@@ -83,6 +83,8 @@
 /* game div with soft grey background image*/
 .framed-grey {
   position: relative;
+  margin-top: 1rem;
+  color: #ecdd08;
 
   /* border */
   border-style: solid;
@@ -91,7 +93,7 @@
   border-image-slice: 3 3 3 3;
   border-image-width: 7px;
   border-width: 7px;
-  padding: 12px;
+  padding: 2px;
 
   /* internal border */
   box-sizing: border-box;

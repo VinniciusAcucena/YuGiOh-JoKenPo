@@ -11,6 +11,8 @@ const state ={
     },
     fieldCards: {
         player: document.getElementById("player-field-card"),
+        playerType: document.querySelector(".player-field-card-type"),
+        computerType: document.querySelector(".computer-field-card-type"),
         computer: document.getElementById("computer-field-card"),
     },
     playerSides: {
@@ -94,7 +96,11 @@ async function setCardsField(cardId) {
     await hiddenCardDetails()
 
     state.fieldCards.player.src = cardData[cardId].img
+    state.fieldCards.playerType.innerText = cardData[cardId].type
+    state.fieldCards.playerType.classList.add("framed-grey")
     state.fieldCards.computer.src = cardData[computerCardId].img
+    state.fieldCards.computerType.innerText = cardData[computerCardId].type
+    state.fieldCards.computerType.classList.add("framed-grey")
 
     let duelResults = await checkDuelResults(cardId, computerCardId)
 
@@ -170,6 +176,10 @@ async function resetDuel() {
 
     state.fieldCards.player.style.display = "none"
     state.fieldCards.computer.style.display = "none"
+    state.fieldCards.playerType.innerText = ""
+    state.fieldCards.computerType.innerText = ""
+    state.fieldCards.playerType.classList.remove("framed-grey")
+    state.fieldCards.computerType.classList.remove("framed-grey")
 
     init()
 }
